@@ -1,4 +1,4 @@
-# README.md
+# Side Project
 
 # Technologies
  - API: DeepAPI - Text Generator

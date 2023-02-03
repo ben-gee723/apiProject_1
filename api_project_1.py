@@ -6,6 +6,7 @@
 
 # imports
 import configparser
+from collections import defaultdict
 
 # messaging service -> wazo instead of twilio
 
@@ -22,10 +23,20 @@ WAWEATHERAPI = "https://www.agric.wa.gov.au/weather-api-20"
 #	-H 'api-key:quickstart-QUdJIGlzIGNvbWluZy4uLi4K' \
 TEXTGENERATIONAPI = "https://api.deepai.org/api/text-generator" 
 
-
-
 # sub functions
 # 2. fetch API information
+
+def parse_text_generator_params(config):
+    """Return dict of lists of Fuelwatch parameters."""
+    text_generator_param_field = ('text')
+    text_generator_param = defaultdict(list)
+    print(text_generator_param)
+
+    parameter = config['TEXT GENERATOR PARAMS'][text_generator_param_field]
+    if parameter:
+    	text_generator_param[text_generator_param_field] = parameter.split(',')
+    
+    return text_generator_param
 
 # 3. analyse and format data
 
@@ -36,6 +47,8 @@ def main():
 	"""Script entry point."""
 	config = configparser.ConfigParser()
 	config.read('configfile.ini')
+
+	text_generator_params = parse_text_generator_params(config)
 	print()
 
 # run main
