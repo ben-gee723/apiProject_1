@@ -1,37 +1,22 @@
 # api project
-# 1. find an API
-# 2. import the information
-# 3. analyse the information
-# 4. send the information as a text to a phone
+# 1. Find an API
+# 2. Import the information
+# 3. Analyse the information
+# 4. Send the information as a text to a phone
 
 # imports
 import configparser
 from collections import defaultdict
 from itertools import product
 import feedparser
-from urllib.parse import urlencode
 
 # messaging service -> wazo instead of twilio
 
-
-# 1. FAPI from DataWa
-# https://catalogue.data.wa.gov.au/dataset/dpird-apis
-WAWEATHERAPI = "https://www.agric.wa.gov.au/weather-api-20"
-
-# OR
-# text generation api
-# curl \
-# Example directly sending a text string:
-#	-F 'text=YOUR_TEXT_HERE' \
-#	-H 'api-key:quickstart-QUdJIGlzIGNvbWluZy4uLi4K' \
-
-
+# 1. Find an API
+### TEXT GENERATION API
 # apiKey & auth
 HEADERS = {'api_key':'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
 TEXTGENERATIONAPI = "https://api.deepai.org/api/text-generator/?"+urlencode(HEADERS)
-print(urlencode(HEADERS))
-test = feedparser.parse(TEXTGENERATIONAPI+'&text=APPLE')
-print(test)
 
 # sub functions
 # 2. fetch API information
