@@ -89,6 +89,15 @@ def parse_feed(url_set):
 
 # 4.0 send info to someone via text
 # 4.1 Format text
+def format_message(cities):
+    """Return formatted message for end user."""
+    message = ['The current weather for:']
+    for city in cities:
+        message.append(
+            f' - {city.name} ({city.country}), {city.description}. Temperatures - Current: {round(city.currtemp)}°C, Min: {round(city.mintemp)}°C, and Max: {round(city.mintemp)}°C.'
+        )
+    print('\n'.join(message))
+    return '\n'.join(message)
 
 # 4.2 Send Text
 
@@ -104,6 +113,7 @@ def main():
 
 	cities = parse_feed(urls)
 	print(cities)
+	format_message(cities)
 
 
 # run main
